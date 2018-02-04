@@ -1,23 +1,45 @@
-const { git, Repository } = require('../lib')
-const { join } = require('path')
-const { existsSync, mkdirSync } = require('fs')
-const del = require('del')
+import { git, Repository } from '../lib'
+import { join } from 'path'
+import { existsSync, mkdirSync } from 'fs'
+import execa from 'execa'
 
 const cwd = '/tmp/execa-git-test'
 const gitPath = join(cwd, '.git')
 
 beforeEach(() => mkdirSync(cwd))
 
-afterEach(async () => del(cwd, { force: true }))
+afterEach(async () => {
+  try {
+    await execa('rm', ['-rf', cwd])
+  } catch (error) {
+    console.error(error)
+  }
+})
 
 describe('git()', () => {
-  test('can successfully run git commands', async () => {
+  test('can successfully run git commands as a string', async () => {
     try {
       await git('init', { cwd })
     } catch (error) {
       console.error(error)
     } finally {
       expect(existsSync(gitPath)).toBe(true)
+    }
+  })
+
+  test('can successfully run git commands as an array', async () => {
+    let commitSubject = 'Test commit'
+    let headCommitSubject
+    try {
+      await git('init', { cwd })
+      await execa('touch', ['index.js'], { cwd })
+      await git('add .', { cwd })
+      await git(['commit', '-m', commitSubject], { cwd })
+      headCommitSubject = await git('log -1 --pretty=%s', { cwd })
+    } catch (error) {
+      console.error(error)
+    } finally {
+      expect(headCommitSubject).toEqual(commitSubject)
     }
   })
 })

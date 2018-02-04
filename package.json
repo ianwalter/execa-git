@@ -1,6 +1,6 @@
 {
   "name": "execa-git",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "A wrapper around execa to help run git commands",
   "main": "lib/index.js",
   "directories": {
@@ -30,7 +30,21 @@
   },
   "homepage": "https://github.com/ianwalter/execa-git#readme",
   "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
     "del": "^3.0.0",
     "jest": "^22.1.4"
+  },
+  "babel": {
+    "presets": [
+      [
+        "env",
+        {
+          "targets": {
+            "node": true
+          }
+        }
+      ]
+    ]
   }
 }
