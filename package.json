@@ -1,0 +1,36 @@
+{
+  "name": "execa-git",
+  "version": "1.0.0",
+  "description": "A wrapper around execa to help run git commands",
+  "main": "lib/index.js",
+  "directories": {
+    "lib": "lib",
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ianwalter/execa-git.git"
+  },
+  "keywords": [
+    "git",
+    "execa",
+    "wrapper"
+  ],
+  "author": {
+    "name": "Ian Walter",
+    "email": "public@iankwalter.com",
+    "url": "https://iankwalter.com"
+  },
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ianwalter/execa-git/issues"
+  },
+  "homepage": "https://github.com/ianwalter/execa-git#readme",
+  "devDependencies": {
+    "del": "^3.0.0",
+    "jest": "^22.1.4"
+  }
+}
