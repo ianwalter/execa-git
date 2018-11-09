@@ -1,7 +1,7 @@
-import { git, Repository } from '../lib'
-import { join } from 'path'
-import { existsSync, mkdirSync } from 'fs'
-import execa from 'execa'
+const { git, Repository } = require('../')
+const { join } = require('path')
+const { existsSync, mkdirSync } = require('fs')
+const execa = require('execa')
 
 const cwd = '/tmp/execa-git-test'
 const gitPath = join(cwd, '.git')
