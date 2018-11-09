@@ -27,7 +27,7 @@
   },
   "homepage": "https://github.com/ianwalter/execa-git#readme",
   "dependencies": {
-    "execa": "^0.9.0"
+    "execa": "^1.0.0"
   },
   "devDependencies": {
     "eslint": "^5.7.0",
