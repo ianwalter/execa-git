@@ -24,8 +24,8 @@ test('can run git commands as a string', async t => {
 test('can run git commands as an array', async t => {
   let commitSubject = 'Test commit'
   await git('init', { cwd })
-  await git('config', 'user.email', 'public@iankwalter.com', { cwd })
-  await git('config', 'user.name', 'Ian Walter', { cwd })
+  await git('config', 'user.email', '"public@iankwalter.com"', { cwd })
+  await git('config', 'user.name', '"Ian Walter"', { cwd })
   await execa('touch', ['index.js'], { cwd })
   await git('add .', { cwd })
   await git(['commit', '-m', commitSubject], { cwd })
