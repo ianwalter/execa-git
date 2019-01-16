@@ -16,12 +16,12 @@ test.afterEach(async () => {
   }
 })
 
-test('git can run git commands as a string', async t => {
+test('can run git commands as a string', async t => {
   await git('init', { cwd })
   t.true(existsSync(gitPath))
 })
 
-test('git can run git commands as an array', async t => {
+test('can run git commands as an array', async t => {
   let commitSubject = 'Test commit'
   await git('init', { cwd })
   await execa('touch', ['index.js'], { cwd })

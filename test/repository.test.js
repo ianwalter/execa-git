@@ -17,12 +17,12 @@ test.afterEach(async () => {
   }
 })
 
-test('Repository can run git commands without specifying cwd', async t => {
+test('can run git commands without specifying cwd', async t => {
   await repo.do('init')
   t.true(existsSync(gitPath))
 })
 
-test('Repository can return the current branch', async t => {
+test('can return the current branch', async t => {
   await repo.do('init')
   t.is(await repo.currentBranch(), 'master')
 })
