@@ -1,5 +1,5 @@
 import { join } from 'path'
-import { existsSync, mkdirSync } from 'fs'
+import { access, mkdir } from '@ianwalter/fs'
 import test from 'ava'
 import execa from 'execa'
 import { Repository } from '..'
@@ -8,7 +8,7 @@ const cwd = 'tmp'
 const gitPath = join(cwd, '.git')
 const repo = new Repository(cwd)
 
-test.beforeEach(() => mkdirSync(cwd, { recursive: true }))
+test.beforeEach(async () => mkdir(cwd, { recursive: true }))
 test.afterEach(async () => {
   try {
     await execa('rm', ['-rf', cwd])
@@ -19,7 +19,7 @@ test.afterEach(async () => {
 
 test('can run git commands without specifying cwd', async t => {
   await repo.do('init')
-  t.true(existsSync(gitPath))
+  await t.notThrowsAsync(async () => access(gitPath))
 })
 
 test('can return the current branch', async t => {

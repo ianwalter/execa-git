@@ -16,11 +16,7 @@
     "execa",
     "wrapper"
   ],
-  "author": {
-    "name": "Ian Walter",
-    "email": "public@iankwalter.com",
-    "url": "https://iankwalter.com"
-  },
+  "author": "Ian Walter <public@iankwalter.com> (https://iankwalter.com)",
   "license": "SEE LICENSE IN LICENSE",
   "bugs": {
     "url": "https://github.com/ianwalter/execa-git/issues"
@@ -30,23 +26,15 @@
     "execa": "^1.0.0"
   },
   "devDependencies": {
+    "@ianwalter/eslint-config": "^1.0.0",
+    "@ianwalter/fs": "^1.0.0",
     "ava": "^1.1.0",
-    "eslint": "^5.7.0",
-    "eslint-config-standard": "^12.0.0",
-    "eslint-plugin-import": "^2.12.0",
-    "eslint-plugin-node": "^8.0.0",
-    "eslint-plugin-promise": "^4.0.1",
-    "eslint-plugin-standard": "^4.0.0",
     "np": "^4.0.1"
   },
   "eslintConfig": {
     "root": true,
     "extends": [
-      "eslint:recommended",
-      "standard"
-    ],
-    "rules": {
-      "no-console": 0
-    }
+      "@ianwalter/eslint-config"
+    ]
   }
 }
